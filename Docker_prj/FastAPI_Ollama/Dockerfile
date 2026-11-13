@@ -1,5 +1,12 @@
 # Use the official slim Python 3.12 image
-FROM python:3.12-slim-bookworm
+FROM python:3.14-slim
+
+# Prevent Python from writing .pyc files and enable unbuffered logging
+#ENV PYTHONDONTWRITEBYTECODE=1
+#ENV PYTHONUNBUFFERED=1
+
+RUN apt-get update && apt-get install -y vim
+
 
 # Set the working directory
 WORKDIR /app
